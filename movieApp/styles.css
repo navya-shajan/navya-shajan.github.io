@@ -1,0 +1,17 @@
+
+body{
+    background-color: cadetblue;
+}
+
+
+footer{
+    background-color: black;
+    width: max-content;
+    height: 100px;
+}
+
+#banner{
+height: 500px;
+ background-color: rgb(168, 145, 145); 
+ text-align: center;
+}
