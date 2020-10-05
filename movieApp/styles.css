@@ -1,17 +1,55 @@
+*{
+    padding:0;
+    margin:0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
 
 body{
-    background-color: cadetblue;
-}
-
-
-footer{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
     background-color: black;
-    width: max-content;
-    height: 100px;
 }
 
-#banner{
-height: 500px;
- background-color: rgb(168, 145, 145); 
- text-align: center;
+nav{
+    background-color: blueviolet;
+    height: 90px;
+    width: 100%;
+}
+
+label.logo{
+    color: rgb(243, 96, 145);
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 50px;
+}
+
+label.logoText{
+    color:white ;
+    font-size: 10px;
+    
+    
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+    padding: 0px;
+    list-style: none;
+}
+ 
+nav ul li{
+    display: inline;
+    line-height: 80px;
+    padding-left: 20px;
+}
+
+nav ul li a{
+    color: white;
+    font-size: 18px;
+}
+
+input{
+  border:3px solid tomato;  
+  border-radius: 30px;
+  padding: 0px 10px;
 }
