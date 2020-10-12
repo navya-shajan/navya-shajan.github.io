@@ -1,55 +1,59 @@
-*{
+* {
     padding:0;
     margin:0;
     text-decoration: none;
     box-sizing: border-box;
 }
-
 body{
     font-family:Georgia, 'Times New Roman', Times, serif ;
     background-color: black;
 }
-
 nav{
     background-color: blueviolet;
     height: 90px;
     width: 100%;
+    display: block;
 }
-
 label.logo{
     color: rgb(243, 96, 145);
     font-size: 30px;
     font-weight: bold;
     line-height: 50px;
 }
-
 label.logoText{
     color:white ;
     font-size: 10px;
-    
-    
-}
-
+    }
 nav ul{
     float: right;
     margin-right: 20px;
     padding: 0px;
     list-style: none;
+    display: inline-flex;
 }
- 
-nav ul li{
-    display: inline;
-    line-height: 80px;
-    padding-left: 20px;
+nav ul li {
+    line-height: 60px;
+    padding-left: 30px;
+    text-align: center;
+    display: ;
 }
-
 nav ul li a{
     color: white;
     font-size: 18px;
 }
-
 input{
   border:3px solid tomato;  
   border-radius: 30px;
   padding: 0px 10px;
+}
+.active, nav ul li:hover {
+    background-color: rgb(188, 129, 243);
+    border-radius: 4px;
+}
+.subMenu {
+    display: none;
+}
+nav ul li:hover .subMenu{
+    display: block;
+    position: absolute;
 }
