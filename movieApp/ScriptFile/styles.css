@@ -35,7 +35,6 @@ nav ul li {
     line-height: 60px;
     padding-left: 30px;
     text-align: center;
-    display: ;
 }
 nav ul li a{
     color: white;
@@ -56,4 +55,19 @@ input{
 nav ul li:hover .subMenu{
     display: block;
     position: absolute;
+}
+section{
+    display: flex;
+    width: 100%;
+    overflow-x:auto;
+    margin-top:5px;
+}
+section img{
+    width: 200px;
+    transition: 250ms all;
+}  
+img:hover{
+    margin-left: 0 30px;
+    transform: scale(1.2);
+    cursor: pointer;
 }
