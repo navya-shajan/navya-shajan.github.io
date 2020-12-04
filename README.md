@@ -1,10 +1,12 @@
 # movieApp_layout
-This project have a goal to build an application (web page) which will give a user possibility to search for a movie in a huge database of IMDb.
+This project have a goal to build an application (web page) which will give a user possibility to search for a movie in a huge database of TMDb.
 
 Following features are present in the app:
 
-search movie via name (full name of part of a name if possible).
+Search movie via name (full name of part of a name if possible).
 
-present search results in a list (if there are more then one was found).
+Present search results in a list (if there are more then one was found).
 
-present different types of movie data - picture, description, rating, year and so on.
+Movies are categorized by top-rated movies, upcoming movies, trending movies and also by genres.
+
+One can watch movie trailer within the website.
