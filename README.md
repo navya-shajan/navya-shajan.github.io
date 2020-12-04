@@ -1,4 +1,4 @@
-# movieApp_layout
+# MovieApp
 This project have a goal to build an application (web page) which will give a user possibility to search for a movie in a huge database of TMDb.
 
 Following features are present in the app:
