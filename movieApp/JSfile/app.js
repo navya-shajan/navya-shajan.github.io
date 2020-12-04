@@ -1,48 +1,56 @@
 const API_KEY="daf7b11fd7dfe1a364da7a86d79ba727";
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
-const URL = "https://api.themoviedb.org/3/search/movie?api_key=";
-
-//selecting search elements from DOM
-const inputElement=document.querySelector("#searchBox");
-const movieSearchable=document.querySelector("#movies-searchable");
-
-inputElement.onsearch=function(event){
-   
-    const value=inputElement.value;
-    const newUrl= URL+API_KEY+'&query='+value;
-    fetch(newUrl)
+const URL = "https://api.themoviedb.org";
+/*----------------------url fetch-----------------------*/
+function api_request(url,onComplete,onError){
+    fetch(url)
         .then((res) => res.json())
-        .then((data) => {
-            //clearing the values inside
-            movieSearchable.innerHTML = '';
-            const movies = data.results;
-            const movieBlock = movieContainer(movies);
-            movieSearchable.appendChild(movieBlock);
-        })
-        .catch((error)=>{
-            console.log('Error:',error);
-        });
-    console.log('Value: ',value);
+        .then(onComplete)
+        .catch(onError);
 }
-
-function movieContainer(movies){
-    const movieElement = document.createElement('div');
-    movieElement.setAttribute('class','movie');
-    const movieTemplate =`
-    <section class = "section">
-    ${movies.map((movie) => {
-        if(movie.poster_path){
-        return`
-        <img src = ${IMG_URL + movie.poster_path} data-movie-id=${movie.id}/>
-        `;
-        }
-    })}
-    </section>
-    <div class = "content">
-    <p id = "content-close">X</p>
-    </div>
-    `;
-
-    movieElement.innerHTML = movieTemplate;
-    return movieElement;
+/*----------------------Movie Url Path----------------------- */
+function movieDBUrl(path){
+    const url = `${URL}/3${path}?api_key=${API_KEY}`;
+    return url;
+}
+/*----------------------Trending Movies----------------------- */
+function getTrendingMovies(){
+    const url = movieDBUrl('/trending/movie/day');
+    const render = renderMovies.bind({ title: 'Trending Movies' })
+    api_request(url,render,handleGeneralError);
+}
+/*----------------------Upcomming Movies----------------------- */
+function getUpcommingMovies(){
+    const url = movieDBUrl('/movie/upcoming');
+    const render = renderMovies.bind({ title: 'Upcoming Movies' })
+    api_request(url,render,handleGeneralError);
+}
+/*------------------------Top Rated Movies--------------------- */
+function getTopRatedMovies() {
+    const url = movieDBUrl(`/movie/top_rated`);
+    const render = renderMovies.bind({ title: 'Top Rated Movies' })
+    api_request(url, render, handleGeneralError);
+}
+/*-----------------------Search Movies--------------------------------------- */
+function searchMovie(value) {
+    const url = movieDBUrl('/search/movie') + '&query=' + value;
+    api_request(url, renderSearchMovies, handleGeneralError);
+}
+/*----------------------------Get Video-----------------------------------*/
+function getVideoByMovieId(movieId, content){
+    const url = movieDBUrl(`/movie/${movieId}/videos`);
+    const render = createVideoTemplate.bind({content});
+    api_request(url,render,handleGeneralError);
+}
+/*----------------------------Get Genre list---------------------------------*/
+function getGenresId(genreName){
+const url = movieDBUrl(`/genre/movie/list`);
+const render = getMovieByGenreId.bind({genreName});
+api_request(url,render,handleGeneralError);
+}
+/*-------------------------------Get Movie by Genre----------------*/
+function getMovieByGenre(genreId){
+    const url = movieDBUrl(`/discover/movie`);
+    const newUrl =url+`&with_genres=${genreId}`;
+    api_request(newUrl,renderSearchMovies,handleGeneralError);
 }

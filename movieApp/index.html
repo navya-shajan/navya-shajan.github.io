@@ -5,38 +5,37 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="ScriptFile/styles.css">
+      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      
+      
     </head>
     <body>
-    <header>
-      <nav>
+      <div class="navbar">
         <label class="logo">MFA</label>
-        <label class="logoText">Movie Finder App</label>   
-        <ul>
-          <li class="active"><a href="#"><i class="fa fa-home"></i> HOME</a></li>
-          <li><a href="#"><i class="fa fa-film"></i> GENRES</a>
-            <div class="subMenu"> 
-            <ul class="subMenu">
-                <li><a>DRAMA</a></li>
-                <li><a>ACTION</a></li>
-                <li><a>ROMANCE</a></li>
-                <li><a>COMEDY</a></li>
-                <li><a>THRILLER</a></li>
-                <li><a>HORROR</a></li>
-              </ul>
-            </div>
-          </li>
-          <li><a href="#"><i class="fa fa-child"></i> KIDS</a></li>
-          <li><input type="search" id="searchBox" placeholder="Search Movie"><i class="fa fa-search"></i></li>
-        </ul>
-      </nav>  
-    </header>
+        <label class="logoText">Movie Finder App</label>
+        <div class="menu">
+        <a href="index.html"><i class="fa fa-home"></i>HOME</a>
+        <div class="subnav">
+          <button class="subnavbtn"><i class="fa fa-film"></i>GENRE</button>
+          <div class="subnav-content" id="subnav-content">
+            <a href="#Action" id="Action">ACTION</a>
+            <a href="#Comedy" id="Comedy">COMEDY</a>
+            <a href="#Drama"id="Drama">DRAMA</a>
+            <a href="#Horror"id="Horror">HORROR</a>
+            <a href="#Thriller"id="Thriller">THRILLER</a>
+          </div>
+        </div> 
+        <input type="search" id="searchBox" placeholder=" Search Movie"><i class="fa fa-search"></i>
+        </div>
+    </div>
     <main>
-      <div id="movies-searchable">
-        
-      </div>
+      <div id="movies-searchable"></div>
+      <div id="Container"></div>
     </main>
-<footer>footer</footer>
+<footer>
+</footer>
 <script src="JSfile/app.js"></script>
+<script src="JSfile/main.js"></script>
   </body>
 </html>
